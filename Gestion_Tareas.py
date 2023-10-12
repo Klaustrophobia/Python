@@ -41,7 +41,7 @@ class ListaTarea:
 
     def listar_tareas(self):
         if not self.tareas:
-            print(f"1No hay tareas registradas")
+            print(f"No hay tareas registradas")
             return 
         
         print(f"Listado de las tareas agregadas")
