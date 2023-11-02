@@ -67,6 +67,28 @@ Los objetos es una instancia de la clase, tiene identidad propia y un estado.
 
     
 ## Intancia
+    Se refiere a un bjeto concreto o una ocurrencia especifica de una clase. Las clases son plantillas que definen la estructura y el comportamiento de los objetos, y las instancias son los objetos reales creados a partir de esas plantillas.
+
+    En OOP, una clase define atributos {datos} y metodos {comportamiento} que caracterizan a un tipo de objeto. Cada instancia de una clase tiene sus propios valores para los atributos, lo que le permite representar datos unicos. Sin embargo, todas las intancias comparten el mismo conjunto de metodos definidos en la clase.
+
+    class Coche:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def acelerar(self):
+        print(f"{self.marca} {self.modelo} acelerando...")
+
+    # Crear instancias de la clase Coche
+    coche1 = Coche("Toyota", "Camry")
+    coche2 = Coche("Ford", "Mustang")
+
+    # coche1 y coche2 son instancias de la clase Coche
+
+    En este ejemplo, coche1 y coche2 son instancias de la clase Coche. Cada uno tiene sus propios valores para los atributos marca y modelo. Puedes acceder a los métodos de la clase a través de estas instancias, lo que te permite realizar acciones específicas para cada coche.
+
+    Las instancias son fundamentales en la programación orientada a objetos, ya que permiten modelar y manipular objetos del mundo real de manera eficiente en el código. Cada instancia es independiente de las demás y puede tener sus propios datos y ejecutar sus propios métodos, lo que facilita la gestión y el uso de múltiples objetos similares en una aplicación.
+        
 
 
 
