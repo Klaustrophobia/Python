@@ -62,13 +62,11 @@
         VIEW -> APLICA LA LOGICA 
         
 ## INSTALL
-    1. python -m install Django                         Correccion Django  - pip install django
+    1. py -m install Django                         Correccion Django  - pip install django
     2. django-admin startproject NombreProyecto     
     3. python manage.py migrate -> realizar la primera migracion  - Debe de estar en la carpeta de clase
     4. python manage.py runserver -> levantar el servidor - 
     5. python manage.py startapp nombreapp -> crea una app dentro de la app
-
-## EJEMPLO
 
 ## EJEMPLO
     Ejemplo del archivo views, no olvidar importar el HttpResponse
@@ -79,7 +77,7 @@
     Segundo paso:
     # Aqui se crearian las views
     def hola_mundo(request):
-        return HttpRespnse(
+        return HttpResponse(
             "<h1>HOLA MUNDO</h1>"
         )
     
@@ -89,4 +87,16 @@
     Cada URL deben de una function, es decir parte de un controller de logica
 
     Enviar parametros dentro de una url
+
+
+    Template -> HTML que vera el usuario
+    Los template se crea/guardan en la raiz del proyecto
+
+    {%block%}
+    {%endblock%}
+
+    Backend -> Se trabaja view, urls, models; Models se encarga de la DB
+    frontend -> Se trabaja templates    
+    
+    python manage.py createsyoeruser
     
