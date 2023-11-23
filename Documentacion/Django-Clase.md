@@ -62,11 +62,13 @@
         VIEW -> APLICA LA LOGICA 
         
 ## INSTALL
-    1. py -m install Django
-    2. django-admin startproject NombreProyecto
-    3. python manage.py migrate -> realizar la primera migracion
-    4. python manage.py runserver -> levantar el servidor
-    5. py manage.py startapp nombreapp -> crea una app dentro de la app
+    1. python -m install Django                         Correccion Django  - pip install django
+    2. django-admin startproject NombreProyecto     
+    3. python manage.py migrate -> realizar la primera migracion  - Debe de estar en la carpeta de clase
+    4. python manage.py runserver -> levantar el servidor - 
+    5. python manage.py startapp nombreapp -> crea una app dentro de la app
+
+## EJEMPLO
 
 ## EJEMPLO
     Ejemplo del archivo views, no olvidar importar el HttpResponse
