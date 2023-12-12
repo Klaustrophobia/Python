@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class Contacto():
+class Contacto(ABC):
     def __init__(self, nombre, numeros, correos, tipo):
         self.nombre = nombre
         self.numeros = numeros 
@@ -39,8 +39,12 @@ class Personal(Contacto):
         self.nickname = nickname
 
     def generar_key(self):
-        return f"{self.nickname}-{self.correos[0]}"
-
+        if self.correos:
+            return f"{self.nickname}-{self.correos[0]}"
+        elif self.numeros:
+            return f"{self.nickname}-{self.numeros[0][:3]}"
+        else:
+            return f"{self.nickname}-NoKey"  # Definir un valor predeterminado si no hay correo ni número
 class Agenda():
     def __init__(self):
         self.contactos = []
