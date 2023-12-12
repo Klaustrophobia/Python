@@ -29,10 +29,17 @@ class Familiar(Contacto):
         super().__init__(nombre, numeros, correos, tipo)
         self.tipoFamiliar = tipoFamiliar
 
+    def generar_key(self):
+        return f"{self.tipoFamiliar}-{self.nombre}"
+
 class Personal(Contacto):
-    def __init__(self, nombre, numeros, correos, tipo, titulo):
+    def __init__(self, nombre, numeros, correos, tipo, titulo, nickname):
         super().__init__(nombre, numeros, correos, tipo)
-        tipo.titulo = titulo
+        self.titulo = titulo
+        self.nickname = nickname
+
+    def generar_key(self):
+        return f"{self.nickname}-{self.correos[0]}"
 
 class Agenda():
     def __init__(self):
@@ -75,6 +82,62 @@ class Agenda():
                 key = contacto.generar_key()
                 print(f"{i}.    Nombre: {contacto.nombre}       Numeros: {contacto.numeros}     Correos: {contacto.correos}     KEY:{key}")
 
+    def add_familiar (self):
+        print("F A M I L I A R")
+        nombre = input("Nombre: ")
+        tipoFamiliar = input("Tipo Familiar: ")
+
+        numeros = []
+        while True:
+            numero = input("Numero de telefono (o '0' para detenerse): ")
+            if numero == '0':
+                break
+            numeros.append(numero)
+
+        correos = []
+        while True:
+            correo = input("Correo electronico (o 'stop' para detenerse): ")
+            if correo == 'stop':
+                break
+            correos.append(correo)
+
+        tipo = "Familiar"
+
+        new_familiar = Familiar(nombre, numeros, correos, tipo, tipoFamiliar)
+        new_familiar.numeros = numeros
+        new_familiar.correos = correos
+        self.contactos.append(new_familiar)
+        print(f"Contacto {nombre} ha sido ingresado de manera exitosa!")
+
+    def add_personal (self):
+        print("P E R S O N A L")
+        nombre = input("Nombre: ")
+        titulo = input("Titulo: ")
+        nickname = input("NickName: ")
+
+        numeros = []
+        while True:
+            numero = input("Numero de telefono (o '0' para detenerse): ")
+            if numero == '0':
+                break
+            numeros.append(numero)
+
+        correos = []
+        while True:
+            correo = input("Correo electronico (o 'stop' para detenerse): ")
+            if correo == 'stop':
+                break
+            correos.append(correo)
+
+        tipo = "Personal"
+
+        new_personal = Personal(nombre, numeros, correos, tipo, titulo, nickname)
+        new_personal.numeros = numeros
+        new_personal.correos = correos
+        self.contactos.append(new_personal)
+        print(f"Contacto {nombre} ha sido ingresado de manera exitosa!")
+
+
     def eliminar_contactos(self):
         pass
 
@@ -103,9 +166,9 @@ def main():
                 case 1:
                     agenda.add_empresarial()
                 case 2:
-                    pass
+                    agenda.add_familiar()
                 case 3:
-                    pass
+                    agenda.add_personal()
                 case 4:
                     agenda.lista_contactos()
                 case 5:
